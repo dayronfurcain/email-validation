@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+:root {
+  --body-color: #f5f4f6;
+  --text-color: #2c3b56;
+  --border-color: #23d8e9;
+
+  --normal-font-size: 1.125rem;
+  --small-font-size: 1rem;
+  --smaller-font-size: 0.75rem;
+
+  --normal-font-weight: 400;
+  --medium-font-weight: 500;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body,
+input {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--normal-font-size);
+  font-weight: var(--normal-font-weight);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.form__field {
+  position: relative;
+}
+
+.form__field::after {
+  content: '';
+  position: absolute;
+  left: 4rem;
+  top: 0;
+  bottom: 0;
+  margin-block: auto;
+  height: 1.6rem;
+  border: 1.6px solid var(--text-color);
+  opacity: 60%;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  padding: 0.5rem;
+  font-size: var(--smaller-font-size);
+  font-weight: var(--medium-font-weight);
+  transform: translateY(-50%);
+  background-color: var(--body-color);
+}
+
+.form__input {
+  width: 100%;
+  max-width: 320px;
+  padding: 1.25rem 1.25rem 1.25rem 4.5rem;
+  border: 3px solid var(--border-color);
+  border-radius: 2rem;
+  outline: none;
+  transition: box-shadow 0.4s, border-color 0.4s;
+}
+
+.form__input::placeholder {
+  color: var(--text-color);
+  opacity: 80%;
+}
+
+.form__input:focus {
+  box-shadow: 0 4px 20px var(--border-color);
+}
+
+.form__icon {
+  position: absolute;
+  left: 2rem;
+  top: 0;
+  bottom: 0;
+  font-size: 1.5rem;
+  margin-block: auto;
+  height: max-content;
+  color: var(--text-color);
+  opacity: 80%;
+}
+
+.form__error,
+.valid .form__error {
+  position: absolute;
+  left: 2rem;
+  bottom: -2rem;
+  display: flex;
+  column-gap: 0.2rem;
+  opacity: 0;
+  pointer-events: none;
+  color: hsl(0, 69%, 46%);
+}
+
+.form__error i {
+  font-size: 1.25rem;
+}
+
+.form__error span {
+  font-size: var(--small-font-size);
+}
+
+.invalid .form__error {
+  opacity: 1;
+}
+
+.invalid .form__input {
+  border-color: hsl(0, 69%, 46%);
+}
+
+.invalid .form__input:focus {
+  box-shadow: 0 4px 20px hsl(0, 69%, 46%);
+}
